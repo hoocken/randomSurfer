@@ -7,14 +7,18 @@ public class Main {
         double[][] matrix = {new double[]{1.0 / 4, 1.0 / 4, 1.0 / 4, 1.0 / 4}, new double[]{1.0/3, 0, 1.0/3, 1.0/3}, new double[] {0,0,0,0}, new double[] {0,1.0/2,1.0/2,0} };
         double[][] copy = {new double[]{1.0 / 4, 1.0 / 4, 1.0 / 4, 1.0 / 4}, new double[]{1.0/3, 0, 1.0/3, 1.0/3}, new double[] {0,0,0,0}, new double[] {0,1.0/2,1.0/2,0} };
 
+//        double[][] matrix = {new double[]{0, 1.0/2,0,1.0/2 }, new double[]{0,0,1.0/2,1.0/2, 0}, new double[] {1,0,0,0}, new double[] {0,1.0/2,0,1.0/2}};
+//        double[][] copy = {new double[]{0, 1.0/2,0,1.0/2 }, new double[]{0,0,1.0/2,1.0/2, 0}, new double[] {1,0,0,0}, new double[] {0,1.0/2,0,1.0/2}};
+
         double[][] add = new double[4][4];
         double[][] result = new double[4][4];
-        for (int i = 0; i < 500; i++) {
+        add = matrixAddition(add, copy);
+        for (int i = 0; i < 9999; i++) {
             result = matrixMultiplication(matrix, copy);
             copy = result;
             add = matrixAddition(add, copy);
         }
-        result = matrixMultConstant(add, 1.0/500);
+        result = matrixMultConstant(add, 1.0/10000);
         for (int i = 0; i < result.length; i++) {
             System.out.println(Arrays.toString(result[i]));
         }
